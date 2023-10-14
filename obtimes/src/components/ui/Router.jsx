@@ -4,7 +4,7 @@ import Template from '../screens/template/Template'
 import General from '../screens/general/General'
 const Router = () =>{
     return (
-        <BrowserRouter basename='/'>
+        <BrowserRouter>
             <Routes>
                 <Route element={<Home />} path='/' />
                 <Route element={<Template />} path='/temp' />
