@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, HashRouter as Route} from 'react-router-dom'
 import Home from '../screens/home/home'
 import Template from '../screens/template/Template'
 import General from '../screens/general/General'
