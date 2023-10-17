@@ -7,6 +7,7 @@ import Login from '../auth/Login'
 import { useAuth } from '../../../context/AuthContext'
 import { getAuth, signOut } from 'firebase/auth';
 import app from '../../../firebase';
+import { Link } from 'react-router-dom'
 
 const handleLogout = async () => {
   const auth = getAuth(app);
@@ -29,6 +30,7 @@ const Home = () => {
             <div>Home</div>
             <p>Hi, {currentUser.email}. Below you can see your statistic.</p>
             <button onClick={handleLogout}>Logout</button>
+            <Link to="/temp">Work History</Link>
             <TotalHours hours={hours} />
             {hours.map(hour => (
                 <p key={hour.id}>{hour.number_1} - {hour.number_2}</p>

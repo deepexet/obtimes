@@ -261,3 +261,12 @@ body {
 .menu ul li{
     padding: 8px 8px 8px 34px;
 }
+.time-info{
+    height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.total-info{
+    border-bottom: 2px solid #EE4D38;
+    border-top: 2px solid #EE4D38;
+}

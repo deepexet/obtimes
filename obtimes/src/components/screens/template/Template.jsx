@@ -83,11 +83,15 @@ const Template = () => {
                     <div className="menu">
                         <ul>
                             <li className='link icon general'>
-                                <Link rel="stylesheet" to="/general">General</Link>
+                                <Link to="/general">General</Link>
                             </li>
-                            <li className='link icon lock'>Password</li>
+                            <li className='link icon lock'>
+                                <Link to="/admin">Admin panel</Link>
+                            </li>
                             <li className='link icon notes'>Work notes</li>
-                            <li className='active link icon work'>Work History</li>
+                            <li className='active link icon work'>
+                                <Link to="/temp">Work History</Link>
+                            </li>
                             <li className='link icon charts'>Charts</li>
                         </ul>
                     </div>
@@ -109,26 +113,29 @@ const Template = () => {
                                 {
                                     data ?
                                         <>
-                                            <div className="record headers">
-                                                <div className="date">Date</div>
-                                                <div className="start">Start</div>
-                                                <div className="end">End</div>
-                                                <div className="total">Total</div>
+                                            <div className="time-info">
+                                                <div className="record headers">
+                                                    <div className="date">Date</div>
+                                                    <div className="start">Start</div>
+                                                    <div className="end">End</div>
+                                                    <div className="total">Total</div>
+                                                </div>
+                                                {
+
+                                                    data.map(([date, info]) => {
+                                                        totalTime += info.total_day_time;
+                                                        return (<div key={date} className="record">
+                                                            <div className="date">{date}</div>
+                                                            <div className="start">{info.time_start_short}</div>
+                                                            <div className="end">{info.time_end_short}</div>
+                                                            <div className="total"><SecondToHour seconds={info.total_day_time} /></div>
+                                                        </div>)
+
+                                                    })
+                                                }
+
                                             </div>
-                                            {
-
-                                                data.map(([date, info]) => {
-                                                    totalTime += info.total_day_time;
-                                                    return (<div key={date} className="record">
-                                                        <div className="date">{date}</div>
-                                                        <div className="start">{info.time_start_short}</div>
-                                                        <div className="end">{info.time_end_short}</div>
-                                                        <div className="total"><SecondToHour seconds={info.total_day_time} /></div>
-                                                    </div>)
-
-                                                })
-                                            }
-                                            <div className="record">
+                                            <div className="record total-info">
                                                 <div className="date">Total</div>
                                                 <div className="start">-</div>
                                                 <div className="end">-</div>

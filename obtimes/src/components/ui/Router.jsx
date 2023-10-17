@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, HashRouter as Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from '../screens/home/home'
 import Template from '../screens/template/Template'
 import General from '../screens/general/General'
@@ -8,6 +8,7 @@ const Router = () =>{
             <Routes>
                 <Route element={<Home />} path='/' />
                 <Route element={<Template />} path='/temp' />
+                <Route element={<Template />} path='/admin' />
                 <Route element={<General />} path ='/general'/>
                 <Route path='*' element={<div>Not Found</div>}/>
             </Routes>
