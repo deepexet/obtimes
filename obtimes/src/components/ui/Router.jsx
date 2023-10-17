@@ -1,10 +1,10 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {HashRouter, Routes, Route} from 'react-router-dom'
 import Home from '../screens/home/home'
 import Template from '../screens/template/Template'
 import General from '../screens/general/General'
 const Router = () =>{
     return (
-        <BrowserRouter basename='/obtimes/'>
+        <HashRouter>
             <Routes>
                 <Route element={<Home />} path='/' />
                 <Route element={<Template />} path='/temp' />
@@ -12,7 +12,7 @@ const Router = () =>{
                 <Route element={<General />} path ='/general'/>
                 <Route path='*' element={<div>Not Found</div>}/>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
         
     )
 }
