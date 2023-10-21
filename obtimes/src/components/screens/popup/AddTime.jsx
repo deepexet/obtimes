@@ -92,7 +92,7 @@ const AddTime = ({info, setInfo}) => {
     return (
         <>
             <div>
-                <button onClick={togglePopup}>Показать попап</button>
+                <button onClick={togglePopup}>Set new time</button>
 
                 {showPopup ? (
                     <div className="popup">

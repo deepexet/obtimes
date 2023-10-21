@@ -11,10 +11,15 @@ export const writeUserData = async (uid, currDate, time_s_full, time_e_full, tim
     });
 };
 
+export const writeUnitsData = async (uid, units, date, type) =>{
+    await set(ref(db, 'dailyData/' + date + '/' + uid + '/' + type), {
+        units: units
+    });
+};
+
 export const readData = async (uid) => {
     // Создание ссылки на место в базе данных, где хранятся данные пользователя
     const dbRef = ref(db, uid ? `users/${uid}` : "users/");
-    
     
     try {
         // Делаем запрос к базе данных
@@ -33,5 +38,26 @@ export const readData = async (uid) => {
         throw error;
     }
 };
-export default { writeUserData, readData }
+export const readDailyData = async () => {
+    // Создание ссылки на место в базе данных, где хранятся данные пользователя
+    const dbRef = ref(db, "dailyData/");
+    
+    try {
+        // Делаем запрос к базе данных
+        const snapshot = await get(dbRef);
+        // Проверяем, существуют ли данные
+        if (snapshot.exists()) {
+            return snapshot.val();  // Если да, возвращаем их
+        } else {
+            console.log("No data available");
+            return null;  // Если нет, возвращаем null
+        }
+    } catch (error) {
+        // Если произошла ошибка, выводим её в консоль и пробрасываем дальше
+        console.error(error);
+        throw error;
+    }
+};
+
+export default { writeUserData, readData, writeUnitsData, readDailyData }
 
