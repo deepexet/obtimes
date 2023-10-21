@@ -1,4 +1,5 @@
 import React from 'react'
+import AddTime from '../popup/AddTime'
 
 const HeadProfile = () => {
     return (

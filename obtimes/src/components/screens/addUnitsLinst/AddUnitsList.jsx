@@ -11,79 +11,33 @@ import Advertise from '../advertise/Advertise';
 import HeadProfile from '../HeadProfile/HeadProfile';
 import CheckboxLabelCircle from '../../ui/checkbox-label-circle/CheckboxLabelCircle';
 // import awaitfirebaseService from '../../../services/awaitfirebaseService'
-import { useForm } from 'react-hook-form'
-import { useAuth } from '../../../context/AuthContext';
+import ReGroupCommercial from './ListType/ReGroupCommercial/rgc';
+import SelectTypeList from './SelectTypeList/SelectTypeList';
+import ReGroupResidential from './ListType/ReGroupResidential/rgr';
+import DexterList from './ListType/Dexter/Dexter';
+import CustomList from './ListType/Custom/CustomList';
 
 const Template = () => {
 
-    const [data, setData] = useState([
-        { name: '100-1064', checked: false },
-        { name: '100-1063', checked: false },
-        { name: '100-1062', checked: false },
-        { name: '100-1068', checked: false },
-        { name: '100-0220', checked: false },
-        { name: '100-0221', checked: false },
-        { name: '100-1070', checked: false },
-        { name: '100-1071', checked: false },
-        { name: '100-1072', checked: false },
-        { name: '100-1073', checked: false },
-        { name: '100-1074', checked: false },
-        { name: '100-1075', checked: false },
-        { name: '100-1076', checked: false },
-        { name: '100-1077', checked: false },
-        { name: '100-1078', checked: false },
-        { name: '100-1079', checked: false },
-
-    ]);
-
-    const { currentUser } = useAuth();
-
-    const { register, reset, handleSubmit, formState: { errors } } = useForm({
-        mode: 'onChange'
-    })
-
-
-    const addUnits = (data) => {
-        let units = [];
-
-        for (let key in data) {
-            if (data[key] === true) {
-                units.push(key)
-            }
-        }
-
-        const currentDate = new Date();
-        const options = { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' };
-        const formattedDate = currentDate.toLocaleDateString('en-US', options);
-
-        console.log(currentUser)
-
-        firebaseService.writeUnitsData(
-            currentUser.uid,
-            JSON.stringify(units),
-            formattedDate,
-            'ReGroup Commercials'
-        )
-        reset()
-    }
+    // ===
 
     const [dailyData, setdailyData] = useState(null);
     const [error, setError] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
-          try {
-            const result = await firebaseService.readDailyData();
-            setdailyData(result);
-        
-          } catch (err) {
-            setError(err);
-          }
+            try {
+                const result = await firebaseService.readDailyData();
+                setdailyData(result);
+
+            } catch (err) {
+                setError(err);
+            }
         };
         fetchData();
-      }, []);
-      console.log(dailyData)
+    }, []);
+    console.log(dailyData)
 
-
+    const [typeList, setTypeList] = useState('RGC');
 
     return (
         <div className="wrapper">
@@ -108,24 +62,39 @@ const Template = () => {
                             </div>
 
 
-                            <form onSubmit={handleSubmit(addUnits)}>
-
-                                {
-                                    data.map((item, index) => (
-                                        <CheckboxLabelCircle
-                                            key={index}
-                                            isChecked={item.checked}
-                                            label={item.name}
-                                            register={register}
-                                            name={item.name}
-                                        />
-                                    ))
-                                }
-
-                                <br />
-                                <button className='btn'>Save</button>
-                            </form>
-
+                            <SelectTypeList setTypeList={setTypeList} />
+                            {typeList && (
+                                (() => {
+                                    switch (typeList) {
+                                        case 'default':
+                                            return (
+                                                <h2>Необходимо выбрать тип добавляемого списка</h2>
+                                            );
+                                        case 'RGC':
+                                            return (
+                                                <ReGroupCommercial />
+                                            );
+                                        case 'RGR':
+                                            return (
+                                                <ReGroupResidential />
+                                            )
+                                        case 'Dexter':
+                                            return (
+                                                <DexterList />
+                                            );
+                                        case 'RGR':
+                                            return (
+                                                <ReGroupResidential />
+                                            )
+                                        case 'Custom':
+                                            return (
+                                                <CustomList />
+                                            );
+                                        default:
+                                            return null;
+                                    }
+                                })()
+                            )}
 
                         </div>
                         {/* <Advertise /> */}
