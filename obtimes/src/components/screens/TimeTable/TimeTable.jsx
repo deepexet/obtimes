@@ -5,8 +5,8 @@ import { getDatabase, ref, child, get } from 'firebase/database';
 import { db } from '../../../firebase'
 import SecondToHour from '../template/SecondToHour/SecondToHour';
 
-const TimeTable = ({data}) => {
-    
+const TimeTable = ({ data, dateInterval }) => {
+    // console.log(dateInterval[0])
     function parseDate(dateString) {
         return new Date(dateString);
     }
@@ -17,10 +17,20 @@ const TimeTable = ({data}) => {
             var dateB = parseDate(b[0]);
             return dateA - dateB;
         });
+
+        if (dateInterval) {
+            // console.log(dateInterval)
+            data = data.filter(([key, value]) => {
+                const entryDate = new Date(key);
+                return entryDate >= dateInterval[0] && entryDate <= dateInterval[1];
+            });
+        }
     }
 
+    // console.log(data)
+
     let totalTime = 0;
-    
+
     return (
         <div className="time_block">
             {

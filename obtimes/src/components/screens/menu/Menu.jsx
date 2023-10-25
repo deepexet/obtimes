@@ -10,6 +10,7 @@ const Menu = () => {
                         {[
                             { path: '/temp', label: 'Work History', defaultClass: 'link icon work' },
                             { path: '/addunitslist', label: 'Add units list', defaultClass: 'link icon lock' },
+                            { path: '/statistic', label: 'Statistic', defaultClass: 'link icon work' },
                             // { path: '/general', label: 'General', defaultClass: 'link icon general' },
                             // { path: '/charts', label: 'Charts', defaultClass: 'link icon charts' },
                             // { path: '/notes', label: 'Work notes', defaultClass: 'link icon notes' },
@@ -25,7 +26,7 @@ const Menu = () => {
                                         <li
                                             className={isActive ? 'active ' + item.defaultClass : item.defaultClass}
                                             onClick={()=>{document.title = item.label}}
-                                        >
+                                        >                                            
                                             {item.label}
                                         </li>
                                     )

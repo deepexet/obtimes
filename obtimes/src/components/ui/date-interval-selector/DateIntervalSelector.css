@@ -1,0 +1,20 @@
+.week_selector{
+    display: flex;
+}
+.week_selector .date_interval{
+    border: 1px solid #EE4D38;
+    background: transparent;
+    color: #EE4D38;
+    padding: 3px 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    outline: unset;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+    margin: 0 5px;
+}
+.week_selector button{
+    margin-bottom: unset;
+}

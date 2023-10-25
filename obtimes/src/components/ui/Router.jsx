@@ -3,6 +3,7 @@ import Home from '../screens/home/home'
 import Template from '../screens/template/Template'
 import General from '../screens/general/General'
 import AddUnitsList from '../screens/addUnitsLinst/AddUnitsList'
+import Statistic from '../screens/Statistic/Statistic'
 const Router = () =>{
     return (
         <HashRouter>
@@ -11,6 +12,7 @@ const Router = () =>{
                 <Route element={<Template />} path='/temp' />
                 <Route element={<AddUnitsList />} path='/addunitslist' />
                 <Route element={<General />} path ='/general'/>
+                <Route element={<Statistic />} path ='/statistic'/>
                 <Route path='*' element={<div>Not Found</div>}/>
             </Routes>
         </HashRouter>

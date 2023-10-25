@@ -58,13 +58,14 @@ const ReGroupCommercial = () => {
     }
     return (
         <>
-            <h2>ReGroupCommercial</h2>
+            <h2>ReGroup Commercial</h2>
 
             <form onSubmit={handleSubmit(addUnits)}>
 
                 {
                     data.map((item, index) => (
                         <CheckboxLabelCircle
+                            odd={index % 2 === 0}
                             key={index}
                             isChecked={item.checked}
                             label={item.name}
