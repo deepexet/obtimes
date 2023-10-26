@@ -12,6 +12,7 @@ const CustSelect = ({register, name}) => {
     ).getDate();
     // Генерируем массив с числами от 1 до количества дней в месяце
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+    console.log(daysArray);
 
     const formatDate = (day) => {
         const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);

@@ -347,7 +347,7 @@ body {
     .comp_time{
         margin-right: unset;
     }
-    .comp_time form{
+    .comp_time:not(.work_history) form{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }

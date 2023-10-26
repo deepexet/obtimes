@@ -81,7 +81,7 @@ const Template = () => {
                             </span>
                         </div>
                         <div className="main_body">
-                            <div className="comp_time">
+                            <div className="comp_time work_history">
                                 <div className="second_header">
                                     <span className='main_text'>Work History</span>
                                     <span className="desc_text">Manage billing information and view receips </span>
