@@ -33,13 +33,14 @@ const CustomList = () => {
             data.name
         )
         console.log(data)
+        reset()
     }
     return (
         <>
             <h2>Custom list</h2>
             <form onSubmit={handleSubmit(addUnits)}>
 
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Title list</label>
                 <br />
                 <input
                     type="text"

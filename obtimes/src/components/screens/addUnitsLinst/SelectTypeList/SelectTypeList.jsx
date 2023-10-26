@@ -1,8 +1,12 @@
 import React from 'react'
+import './SelectTypeList.css'
 
 const SelectTypeList = ({setTypeList}) => {
     return (
+        <>
+        <h3>Select type lsit</h3>
         <select
+            className='typeList'
             name="typeList"
             id="typeList"
             onChange={(e) => setTypeList(e.target.value)}
@@ -12,7 +16,7 @@ const SelectTypeList = ({setTypeList}) => {
             <option value="RGR">ReGroup Resedential</option>
             <option value="Dexter">Dexter</option>
             <option value="Custom">Custom</option>
-        </select>
+        </select></>
     )
 }
 

@@ -14,17 +14,24 @@ const HeadProfile = () => {
         }
       };
     return (
-        <div className="profile_box">
+      <>
+      <div className='main_logo'>
+        <img src="https://www.obriensfasterblaster.com/wp-content/themes/fasterblaster/img/obriens-faster-blaster-mobile-wash-halifax-dartmouth-nova-scotia.jpg" alt="" />
+      </div>
+      <div className="profile_box">
             <div className="photo">
-                <img src="/img/me.jpeg" alt="" />
+              {/* <img src="" alt="" /> */}
+                {/* <img src="/img/me.jpeg" alt="" /> */}
             </div>
             <div className="name">
                 <span>Valerii Serhieiev</span>
-                <span className='log'>@deepexet</span>
+                {/* <span className='log'>@deepexet</span> */}
                 {/* <span className='log'>Bank: 22 h</span> */}
                 <button className='log_out' onClick={handleLogout}>Logout</button>
             </div>
         </div>
+      </>
+        
     )
 }
 

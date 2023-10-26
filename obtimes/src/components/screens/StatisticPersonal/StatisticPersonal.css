@@ -1,0 +1,35 @@
+.day_date{
+    width: 100%;
+}
+.day_date .date{
+    color: #EE4D38;
+    position: relative;
+}
+.day_date .date .copy_clipboard{
+    font-size: 12px;
+    top: 0;
+}
+.company p{
+    border-bottom: 1px solid #EE4D38;
+}
+.company listing{
+    background-color: #e6e6ed;
+    padding: 20px;
+    border-radius: 10px;
+    max-height: 150px;
+    overflow-y: scroll;
+    position: relative;
+
+}
+listing .curUnit{
+    display: block;
+    font-size: 16px;
+}
+.copy_clipboard{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #EE4D38;
+    font-size: 16px;
+    padding: 5px 15px;
+}

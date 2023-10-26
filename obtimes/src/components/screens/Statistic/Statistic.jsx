@@ -60,12 +60,12 @@ const Statistic = () => {
                                         <div key={day} className='day'>
                                             <p className='date'>{day}: {dailyData.day} </p>
                                             {Object.keys(dailyData[day]).map(user => (
-                                                <p className="user">
+                                                <div className="user" key={user}>
                                                     <p className='user_name'>{normalName[user]}</p>
                                                     <div className='user_data'>
                                                         {
                                                             Object.keys(dailyData[day][user]).map(company => (
-                                                                <p className="company">
+                                                                <p className="company" key={company}>
                                                                     {company}
                                                                     {/* {JSON.parse(dailyData[day][user][company].units)} */}
                                                                     {/* {units}: {dailyData[day][user]} */}
@@ -73,7 +73,7 @@ const Statistic = () => {
                                                             ))
                                                         }
                                                     </div>
-                                                </p>
+                                                </div>
 
                                             ))}
                                         </div>

@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    font-size: 18px;
+    font-size: 17px;
   }
   
   .checkbox-input:checked + .checkbox-visual {

@@ -1,0 +1,9 @@
+.typeList{
+    width: 100%;
+    border: 1px solid #EE4D38;
+    text-align: center;
+    line-height: 2;
+    height: 40px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+
+}

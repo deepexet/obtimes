@@ -16,26 +16,29 @@ import SelectTypeList from './SelectTypeList/SelectTypeList';
 import ReGroupResidential from './ListType/ReGroupResidential/rgr';
 import DexterList from './ListType/Dexter/Dexter';
 import CustomList from './ListType/Custom/CustomList';
+import { useAuth } from '../../../context/AuthContext';
 
 const Template = () => {
 
+    // const { currentUser } = useAuth();
+    // console.log(currentUser.uid) 
     // ===
 
-    const [dailyData, setdailyData] = useState(null);
+    // const [dailyData, setdailyData] = useState(null);
     const [error, setError] = useState(null);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const result = await firebaseService.readDailyData();
-                setdailyData(result);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const result = await firebaseService.readDailyData();
+    //             setdailyData(result);
 
-            } catch (err) {
-                setError(err);
-            }
-        };
-        fetchData();
-    }, []);
-    console.log(dailyData)
+    //         } catch (err) {
+    //             setError(err);x4
+    //         }
+    //     };
+    //     fetchData();
+    // }, []);
+    // console.log(dailyData)
 
     const [typeList, setTypeList] = useState('RGC');
 

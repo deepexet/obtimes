@@ -33,6 +33,7 @@ const DexterList = () => {
             'Dexter'
         )
         console.log(data)
+        reset()
     }
     return (
         <>
