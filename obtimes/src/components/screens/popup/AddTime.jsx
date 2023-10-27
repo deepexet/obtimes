@@ -86,7 +86,8 @@ const AddTime = ({info, setInfo}) => {
             'total_day_time': totalDayTime
         }]])
         console.log(info)
-        // reset()
+        reset()
+        togglePopup()
     }
 
     return (

@@ -382,5 +382,20 @@ body {
     .time_block .record div{
         justify-content: center;
     }
+    .unit_form input[type=text]{
+        width: 100%;
+        background-color: #F8F8FF;
+        border: 1px solid gray;
+        color: black;
+        height: 30px;
+        border-radius: 5px;
+    }
+    .unit_form textarea[name=units]{
+        border-radius: 5px;
+        width: 100%;
+        background-color: #F8F8FF;
+        border: 1px solid gray;
+        color: black;
+    }
     
 }

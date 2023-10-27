@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { getDatabase, ref, child, get } from 'firebase/database';
 import { db } from '../../../firebase'
 import SecondToHour from '../template/SecondToHour/SecondToHour';
+import TimeRecord from './TimeRecord/TimeRecord';
 
 const TimeTable = ({ data, dateInterval }) => {
     // console.log(dateInterval[0])
@@ -47,12 +48,7 @@ const TimeTable = ({ data, dateInterval }) => {
 
                                 data.map(([date, info]) => {
                                     totalTime += info.total_day_time;
-                                    return (<div key={date} className="record">
-                                        <div className="date">{date}</div>
-                                        <div className="start">{info.time_start_short}</div>
-                                        <div className="end">{info.time_end_short}</div>
-                                        <div className="total"><SecondToHour seconds={info.total_day_time} /></div>
-                                    </div>)
+                                    return (<TimeRecord key={date} date={date} info={info} />)
 
                                 })
                             }

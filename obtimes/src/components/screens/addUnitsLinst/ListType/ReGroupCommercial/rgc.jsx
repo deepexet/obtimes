@@ -4,8 +4,11 @@ import { useEffect, useState } from 'react'
 import { useAuth } from '../../../../../context/AuthContext'
 import CheckboxLabelCircle from '../../../../ui/checkbox-label-circle/CheckboxLabelCircle'
 import firebaseService from '../../../../../services/firebaseService'
+import Toast from '../../../../ui/Toast/Toast'
 
 const ReGroupCommercial = () => {
+    const [showToast, setShowToast] = useState({show: false, message: '', error: false});
+
 
     const [data, setData] = useState([
             { name: '100-0048', checked: false },
@@ -101,17 +104,25 @@ const ReGroupCommercial = () => {
     const addUnits = (data) => {
         let units = [];
 
+
         for (let key in data) {
             if (data[key] === true) {
                 units.push(key)
             }
         }
 
+        if(units.length === 0){
+            setShowToast({show: true, message:'Select at least one unit', error: true});
+            setTimeout(() => {
+                setShowToast({show: false, message:'', error: false});
+            }, 3000);
+            return false
+        }
+
         const currentDate = new Date();
         const options = { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' };
         const formattedDate = currentDate.toLocaleDateString('en-US', options);
 
-        console.log(currentUser)
 
         firebaseService.writeUnitsData(
             currentUser.uid,
@@ -119,11 +130,16 @@ const ReGroupCommercial = () => {
             formattedDate,
             'ReGroup Commercials'
         )
+        setShowToast({show: true, message:'Data added', error: false});
+            setTimeout(() => {
+                setShowToast({show: false, message:'', error: false});
+            }, 3000);
         reset()
     }
     return (
         <>
             <h2>ReGroup Commercial</h2>
+            {showToast.show && <Toast message={showToast.message} error={showToast.error} />}
 
             <form onSubmit={handleSubmit(addUnits)}>
                 <div className="plates" style={{ gridTemplateRows: `repeat(${Math.ceil(data.length / 3)}, 1fr)`}}>

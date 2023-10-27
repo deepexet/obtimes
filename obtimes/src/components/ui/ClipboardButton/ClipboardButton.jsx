@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Toast from '../Toast/Toast';
 
-function ClipboardButton({dataToCopyRaw, dataToCopy, customName}) {
+function ClipboardButton({ dataToCopyRaw, dataToCopy, customName }) {
+
+    const [showToast, setShowToast] = useState(false);
+
+
+
     const [copySuccess, setCopySuccess] = React.useState('');
-    if(dataToCopyRaw){
+    if (dataToCopyRaw) {
         dataToCopy = ''
         Object.keys(dataToCopyRaw).map(user => (
             Object.keys(dataToCopyRaw[user]).map(company => (
@@ -19,13 +25,23 @@ function ClipboardButton({dataToCopyRaw, dataToCopy, customName}) {
             await navigator.clipboard.writeText(dataToCopy);
 
             setCopySuccess('Текст скопирован!');
+            
+            setShowToast(true);
+            setTimeout(() => {
+                setShowToast(false);
+            }, 3000);
+
         } catch (err) {
             setCopySuccess('Ошибка при копировании');
         }
     };
 
     return (
+        <>
             <button className='copy_clipboard' onClick={copyToClipboard}>{customName ? customName : 'Copy'}</button>
+
+            {showToast && <Toast message="Data saved to clipboard" />}
+        </>
     );
 }
 
