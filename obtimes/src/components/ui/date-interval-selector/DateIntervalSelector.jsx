@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './DateIntervalSelector.css'
 
 const DateIntervalSelector = ({setDateInterval}) => {
-    const firstDay = new Date('2023-08-10');
+    const firstDay = new Date('2023-08-11');
     const curDate = new Date();
     const diff = (Math.floor((curDate - firstDay) / (1000 * 60 * 60 * 24))) % 14;
     const [startDate, setStartDate] = useState(new Date(curDate.setDate(curDate.getDate() - diff)));

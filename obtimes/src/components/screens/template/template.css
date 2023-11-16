@@ -10,9 +10,13 @@ body {
     place-items: unset;
     background-color: #E8E8FD;
     font-family: Poppins;
+    box-sizing: border-box;
 }
 
 #root {
+    width: 100%;
+}
+body .wrapper{
     width: 100%;
 }
 
@@ -153,6 +157,8 @@ body {
 .comp_time {
     margin-right: 72px;
     width: 100%;
+    /* max-height: 80vh; */
+    /* overflow: scroll; */
 }
 
 .time_block .record.headers {
@@ -216,7 +222,7 @@ body {
     height: 32px;
     position: absolute;
     content: '';
-    background-image: url(./img/general.png);
+    background-image: url(../img/general.png);
     left: -6px;
     top: 50%;
     transform: translateY(-50%);
@@ -227,7 +233,7 @@ body {
     height: 32px;
     position: absolute;
     content: '';
-    background-image: url(./img/lock.png);
+    background-image: url(../img/lock.png);
     left: -6px;
     top: 50%;
     transform: translateY(-50%);
@@ -238,7 +244,7 @@ body {
     height: 32px;
     position: absolute;
     content: '';
-    background-image: url(./img/notes.png);
+    background-image: url(../img/notes.png);
     left: -6px;
     top: 50%;
     transform: translateY(-50%);
@@ -249,7 +255,7 @@ body {
     height: 32px;
     position: absolute;
     content: '';
-    background-image: url(./img/work.png);
+    background-image: url(../img/work.png);
     left: -6px;
     top: 50%;
     transform: translateY(-50%);
@@ -260,7 +266,7 @@ body {
     height: 32px;
     position: absolute;
     content: '';
-    background-image: url(./img/apps.png);
+    background-image: url(../img/apps.png);
     left: -6px;
     top: 50%;
     transform: translateY(-50%);
@@ -397,5 +403,20 @@ body {
         border: 1px solid gray;
         color: black;
     }
-    
+    #root{
+        display: flex;
+    }
+}
+@media(min-width: 768px){
+    .content{
+        flex-direction: column;
+    }
+    .header .main_logo{
+        position: static;
+        width: 100%;
+        transform: unset;
+    }
+    .content{
+        flex-direction: row;
+    }
 }

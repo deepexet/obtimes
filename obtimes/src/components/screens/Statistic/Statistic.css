@@ -6,3 +6,11 @@
 .day_list .day{
     width: 25%;
 }
+.day_list .user_data{
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+}
+.day_list .user_data .company{
+    /* width: 30%; */
+    /* margin: 0 10px; */
+}

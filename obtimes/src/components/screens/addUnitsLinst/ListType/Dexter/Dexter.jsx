@@ -5,6 +5,7 @@ import { useAuth } from '../../../../../context/AuthContext'
 import CheckboxLabelCircle from '../../../../ui/checkbox-label-circle/CheckboxLabelCircle'
 import firebaseService from '../../../../../services/firebaseService'
 import Toast from '../../../../ui/Toast/Toast'
+import { set } from 'firebase/database'
 
 
 const DexterList = () => {
@@ -47,6 +48,18 @@ const DexterList = () => {
             }, 3000);
         reset()
     }
+    const [data, setData] = useState('');
+    useEffect(() => {
+        const data = localStorage.getItem('data')
+        if(data){
+            setData(data)
+        }
+    }, [])
+    const changeField = (e) => {
+        console.log(e.target.value)
+        localStorage.setItem('data', e.target.value)
+        setData(e.target.value)
+    }
     return (
         <>
             <h2>Dexter</h2>
@@ -57,6 +70,8 @@ const DexterList = () => {
                 cols="40" 
                 rows="10"
                 {...register('units', {})}
+                onChange={(e) => changeField(e)}
+                value={data}
                 ></textarea>
                 <br />
                 <button className='btn'>Save</button>

@@ -22,13 +22,13 @@ const Template = () => {
     const { currentUser } = useAuth();
 
 
-    const firstDay = new Date('2023-08-10');
+    const firstDay = new Date('2023-08-11');
     const curDate = new Date();
     const diff = (Math.floor((curDate - firstDay) / (1000 * 60 * 60 * 24))) % 14;
 
         // костыль
 
-    const startDate = new Date(curDate.setDate(curDate.getDate() - diff-1));
+    const startDate = new Date(curDate.setDate(curDate.getDate() - diff));
     const finalDate = new Date(startDate);
     finalDate.setDate(finalDate.getDate() + 13);
 

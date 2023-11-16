@@ -7,6 +7,7 @@ import Statistic from '../screens/Statistic/Statistic'
 import { useAuth } from '../../context/AuthContext'
 import Login from '../screens/auth/Login'
 import StatisticPersonal from '../screens/StatisticPersonal/StatisticPersonal'
+import Weather from '../screens/weather/Weather'
 const Router = () => {
     const { currentUser } = useAuth();
     return (
@@ -14,11 +15,13 @@ const Router = () => {
             {currentUser ?
                 <HashRouter>
                     <Routes>
-                        <Route element={<Home />} path='/' />
+                        {/* <Route element={<Home />} path='/' /> */}
+                        <Route element={<Template />} path='/' />
                         <Route element={<Template />} path='/temp' />
                         <Route element={<AddUnitsList />} path='/addunitslist' />
                         <Route element={<General />} path='/general' />
                         <Route element={<StatisticPersonal />} path='/statistic' />
+                        <Route element={<Weather />} path='/weather' />
                         <Route path='*' element={<div>Not Found</div>} />
                     </Routes>
                 </HashRouter>

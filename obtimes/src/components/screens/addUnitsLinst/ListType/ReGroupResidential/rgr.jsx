@@ -141,7 +141,6 @@ const ReGroupResidential = () => {
     return (
         <>
             <h2>ReGroup Residential</h2>
-            {showToast.show && <Toast message={showToast.message} error={showToast.error} />}
 
             <form onSubmit={handleSubmit(addUnits)}>
                 <div className="plates" style={{ gridTemplateRows: `repeat(${Math.ceil(data.length / 3)}, 1fr)`}}>
